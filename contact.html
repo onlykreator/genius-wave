@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Brainwave Discovery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0D2340;
+            --gold: #E8A020;
+            --gold-light: #FFB733;
+            --text: #1A1A2E;
+            --muted: #5A6578;
+            --border: #E2E8F0;
+            --white: #FFFFFF;
+            --green-soft: #EAF6EE;
+            --green: #1E7A3A;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: #F4F7FB;
+            line-height: 1.8;
+        }
+        .top-bar {
+            background: var(--navy);
+            color: var(--gold-light);
+            text-align: center;
+            padding: 9px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .container {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+        .doc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+        .doc-meta {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--gold);
+        }
+        p { font-size: 1rem; color: var(--text); margin-bottom: 18px; }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 28px;
+            font-size: 13px;
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { color: var(--navy); }
+
+        /* Info card */
+        .info-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 24px;
+            margin: 28px 0;
+        }
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .info-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .info-icon {
+            font-size: 1.3rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .info-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 3px;
+        }
+        .info-value {
+            font-size: 1rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .info-value a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .info-value a:hover { text-decoration: underline; }
+
+        /* Notice box */
+        .notice {
+            background: var(--green-soft);
+            border-left: 4px solid var(--green);
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+            color: #1A4028;
+        }
+        .notice strong { color: var(--green); }
+
+        /* Refund redirect box */
+        .refund-box {
+            background: #FFF8EC;
+            border: 1px solid #F0D080;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+            color: #7A5200;
+        }
+        .refund-box a { color: var(--navy); font-weight: 600; }
+
+        .legal-footer {
+            font-size: 0.78rem;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            line-height: 1.7;
+        }
+        .legal-footer a { color: var(--muted); text-decoration: none; margin: 0 6px; }
+        .legal-footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">&#9889; Special Report: Mental Performance &amp; Peak Focus</div>
+
+<div class="container">
+
+    <a class="back-link" href="bridge_page_final.html">&#8592; Back to article</a>
+
+    <h1 class="doc-title">Contact Us</h1>
+    <p class="doc-meta">We typically respond within 24–48 business hours</p>
+
+    <p>This page is an informational bridge page operated by an independent affiliate. If you have a question or concern, please review the information below before reaching out.</p>
+
+    <!-- IMPORTANT REFUND NOTICE -->
+    <div class="refund-box">
+        &#9888;&#65039; <strong>Looking for a refund or product support?</strong><br>
+        This Site is an affiliate page — we do not process payments or handle orders. For any issue related to your purchase, billing, or product access, please contact <strong>ClickBank customer support</strong> directly at <a href="https://www.clkbank.com" target="_blank" rel="noopener">clkbank.com</a>. ClickBank offers a 60-day money-back guarantee on all products.
+    </div>
+
+    <!-- CONTACT INFO CARD -->
+    <div class="info-card">
+        <div class="info-row">
+            <div class="info-icon">&#128231;</div>
+            <div>
+                <div class="info-label">Email</div>
+                <!-- ⚠️ Reemplaza con tu email real -->
+                <div class="info-value"><a href="mailto:contact@youremail.com">contact@youremail.com</a></div>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="info-icon">&#127760;</div>
+            <div>
+                <div class="info-label">Location</div>
+                <div class="info-value">Bolivia, South America</div>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="info-icon">&#128337;</div>
+            <div>
+                <div class="info-label">Response time</div>
+                <div class="info-value">24 – 48 business hours</div>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="info-icon">&#128172;</div>
+            <div>
+                <div class="info-label">Language</div>
+                <div class="info-value">English &amp; Spanish</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notice">
+        <strong>Please note:</strong> We are an independent affiliate and are not employees or representatives of ClickBank or the product vendor. For product-related questions, ClickBank is your primary point of contact.
+    </div>
+
+    <div class="legal-footer">
+        <p>
+            <a href="privacy-policy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms &amp; Conditions</a> |
+            <a href="contact.html">Contact Us</a>
+        </p>
+        <p>This site is not part of Meta Inc. or Facebook. FACEBOOK is a trademark of META INC.</p>
+    </div>
+
+</div>
+</body>
+</html>

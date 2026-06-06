@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainwave Discovery | Special Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy:       #0D2340;
+            --gold:       #E8A020;
+            --gold-light: #FFB733;
+            --red-alert:  #C0392B;
+            --red-soft:   #FDECEA;
+            --green-soft: #EAF6EE;
+            --green:      #1E7A3A;
+            --text:       #1A1A2E;
+            --muted:      #5A6578;
+            --border:     #E2E8F0;
+            --white:      #FFFFFF;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: #F4F7FB;
+            line-height: 1.7;
+            padding-bottom: 80px;
+        }
+
+        /* ── TOP BAR ── */
+        .top-bar {
+            background: var(--navy);
+            color: var(--gold-light);
+            text-align: center;
+            padding: 9px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ── CONTAINER ── */
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 28px 20px 60px;
+        }
+
+        /* ── HEADLINE ── */
+        .headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.75rem, 5vw, 2.6rem);
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.18;
+            margin-bottom: 14px;
+        }
+        .headline em {
+            font-style: normal;
+            color: var(--gold);
+        }
+
+        .byline {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ── MEDIA PLACEHOLDER ──
+           IMAGEN PRINCIPAL — reemplaza el div.media-wrap por:
+           <img src="tu-imagen.jpg"
+                style="width:100%;border-radius:10px;display:block;margin:0 0 16px;"
+                alt="Brainwave technology">
+
+           VIDEO local:
+           <video src="demo.mp4" controls
+                  style="width:100%;border-radius:10px;display:block;margin:0 0 16px;">
+           </video>
+
+           VIDEO YouTube / Vimeo:
+           <div style="position:relative;padding-top:56.25%;margin:0 0 16px;">
+             <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID"
+               style="position:absolute;top:0;left:0;width:100%;height:100%;
+                      border:0;border-radius:10px;" allowfullscreen></iframe>
+           </div>
+        ── */
+        .media-wrap {
+            width: 100%;
+            margin: 0 0 0;
+            border-radius: 10px;
+            border: 2px dashed #B0BDD0;
+            background: #EDF2F7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 36px 20px;
+            color: #718096;
+            gap: 6px;
+        }
+        .ph-icon  { font-size: 2rem; opacity: .45; }
+        .ph-label { font-size: 13px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; }
+        .ph-sub   { font-size: 12px; opacity: .7; }
+
+        /* ── CTA MINI (debajo de imagen 1) ── */
+        .cta-mini-wrap {
+            text-align: center;
+            margin: 18px 0 28px;
+        }
+        .cta-mini {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 13px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: .2px;
+            box-shadow: 0 4px 14px rgba(232,160,32,.30);
+            transition: background .2s, transform .15s;
+            text-transform: uppercase;
+        }
+        .cta-mini:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+        .cta-mini-sub {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        /* ── PAIN BOX ── */
+        .pain-box {
+            background: var(--red-soft);
+            border-left: 4px solid var(--red-alert);
+            border-radius: 0 8px 8px 0;
+            padding: 18px 20px;
+            margin: 0 0 24px;
+        }
+        .pain-box p { font-size: 1.05rem; color: #5C1A14; margin: 0; }
+        .pain-box strong { color: var(--red-alert); }
+
+        /* ── BODY TEXT ── */
+        .article p {
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+
+        /* ── SECTION TITLE ── */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 32px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        /* ── BENEFITS GRID ── */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 16px;
+            margin: 24px 0 30px;
+        }
+        .benefit-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 18px;
+            position: relative;
+        }
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--navy), var(--gold));
+            border-radius: 10px 10px 0 0;
+        }
+        .benefit-num {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--gold-light);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            letter-spacing: .5px;
+        }
+        .benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .benefit-card p {
+            font-size: 0.92rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ── CHECKLIST ── */
+        .checklist {
+            background: var(--green-soft);
+            border-left: 4px solid var(--green);
+            border-radius: 0 8px 8px 0;
+            padding: 20px 24px 20px 44px;
+            margin: 24px 0;
+            list-style: none;
+        }
+        .checklist li {
+            font-size: 1rem;
+            color: #1A4028;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: -22px;
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .checklist li:last-child { margin-bottom: 0; }
+
+        /* ── HIGHLIGHT QUOTE ── */
+        .highlight-quote {
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin: 28px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            line-height: 1.55;
+            text-align: center;
+        }
+        .highlight-quote em {
+            color: var(--gold-light);
+            font-style: normal;
+        }
+
+        /* ── CTA PRINCIPAL ── */
+        .cta-wrap { text-align: center; margin: 32px 0 18px; }
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: .3px;
+            box-shadow: 0 6px 20px rgba(232,160,32,.35);
+            transition: background .2s, transform .15s, box-shadow .2s;
+            text-transform: uppercase;
+            max-width: 500px;
+            width: 100%;
+        }
+        .cta-button:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(232,160,32,.45);
+        }
+        .cta-sub {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+        /* ── DIVIDER ── */
+        hr.divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 32px 0;
+        }
+
+        /* ── LEGAL FOOTER ── */
+        .legal-footer {
+            font-size: 0.78rem;
+            color: var(--muted);
+            text-align: center;
+            line-height: 1.7;
+        }
+        .legal-footer p { margin-bottom: 10px; }
+        .legal-footer a { color: var(--muted); text-decoration: none; margin: 0 6px; }
+        .legal-footer a:hover { text-decoration: underline; }
+
+        /* ── STICKY FOOTER ── */
+        .sticky-footer {
+            position: fixed;
+            bottom: 0; left: 0;
+            width: 100%;
+            background: var(--navy);
+            border-top: 3px solid var(--gold);
+            color: var(--white);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            z-index: 999;
+            box-shadow: 0 -4px 20px rgba(0,0,0,.25);
+        }
+        .sticky-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #CBD5E0;
+        }
+        .sticky-cta {
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 9px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            white-space: nowrap;
+            letter-spacing: .2px;
+            transition: background .2s;
+        }
+        .sticky-cta:hover { background: var(--gold-light); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            .headline { font-size: 1.7rem; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .sticky-footer { gap: 8px; padding: 10px 14px; }
+            .sticky-text { font-size: 12px; }
+            .cta-button { font-size: 1rem; padding: 16px 24px; }
+            .cta-mini { font-size: 0.88rem; padding: 12px 22px; }
+            .highlight-quote { font-size: 1.05rem; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">&#9889; Special Report: Mental Performance &amp; Peak Focus</div>
+
+<div class="container">
+
+    <!-- HEADLINE -->
+    <h1 class="headline">
+        The Neuroscience Secret That Could<br>
+        <em>Unlock Your Brain's Hidden Potential</em><br>
+        in Just 7 Minutes a Day
+    </h1>
+
+    <p class="byline">
+        <span>&#128203; Special Research Report</span>
+        &nbsp;&nbsp;
+        <span>&#128274; Limited Access</span>
+    </p>
+
+    <!-- ═══════════════════════════════════════════════════════
+         IMAGEN PRINCIPAL
+         Reemplaza este bloque div.media-wrap completo por:
+
+         <img src="tu-imagen.jpg"
+              style="width:100%;border-radius:10px;display:block;margin:0 0 0;"
+              alt="Brainwave technology">
+    ══════════════════════════════════════════════════════════ -->
+    <div class="media-wrap" style="min-height:240px;">
+        <div class="ph-icon">&#128444;</div>
+        <div class="ph-label">Main Image &mdash; Replace with your Canva design</div>
+        <div class="ph-sub">Recommended: 800&times;450 px &middot; JPG or PNG &middot; 16:9 ratio</div>
+    </div>
+
+    <!-- CTA CORTO DEBAJO DE LA IMAGEN PRINCIPAL -->
+    <div class="cta-mini-wrap">
+        <a href="https://hop.clickbank.net/?affiliate=digicrear&vendor=geniusbr&pid=vsl&tid=meta_ad01"
+           class="cta-mini" target="_blank" rel="nofollow noopener">
+            &#9654; Yes! Show Me How It Works
+        </a>
+        <p class="cta-mini-sub">&#128274; Secure &nbsp;&middot;&nbsp; 100% Natural &nbsp;&middot;&nbsp; No medication</p>
+    </div>
+
+    <!-- DOLOR / AGITACIÓN -->
+    <div class="pain-box">
+        <p>Do you ever feel like no matter how hard you try, <strong>your mind just won't cooperate?</strong> Brain fog, lack of focus, that constant feeling of running at half-power — it's not your fault, and there's a very specific reason it's happening.</p>
+    </div>
+
+    <!-- BODY COPY -->
+    <div class="article">
+        <p>Neuroscientists have identified a specific Gamma brainwave pattern closely linked to peak cognitive states — the same state associated with elite performers, creative thinkers, and highly productive individuals.</p>
+        <p>The problem? Chronic stress, screen overload, and poor sleep progressively suppress this wave. When it goes quiet, you feel it: scattered thoughts, low energy, a brain that just won't click into gear.</p>
+    </div>
+
+    <h2 class="section-title">The 7-Minute Discovery</h2>
+
+    <div class="article">
+        <p>A team of neuroscientists spent years researching how to naturally restore this brainwave state — without extreme meditation routines, expensive equipment, or prescription medication.</p>
+        <p>The result is a precise soundwave technology that uses specific audio frequencies to help guide your brain back into its natural high-performance state. You simply put on headphones, press play, and let the science do the work.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         VIDEO O IMAGEN SECUNDARIA
+         Opción A — Video local:
+         <video src="demo.mp4" controls
+                style="width:100%;border-radius:10px;display:block;margin:24px 0;">
+         </video>
+
+         Opción B — YouTube / Vimeo embed:
+         <div style="position:relative;padding-top:56.25%;margin:24px 0;">
+           <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID"
+             style="position:absolute;top:0;left:0;width:100%;height:100%;
+                    border:0;border-radius:10px;" allowfullscreen></iframe>
+         </div>
+
+         Opción C — Imagen secundaria (GIF, auriculares, etc.):
+         <img src="demo.jpg"
+              style="width:100%;border-radius:10px;display:block;margin:24px 0;" alt="">
+    ══════════════════════════════════════════════════════════ -->
+    <div class="media-wrap" style="min-height:220px;margin:24px 0;">
+        <div class="ph-icon">&#9654;</div>
+        <div class="ph-label">Demo Video or Secondary Image</div>
+        <div class="ph-sub">YouTube embed &middot; MP4 video &middot; or GIF / JPG</div>
+    </div>
+
+    <!-- BENEFITS GRID -->
+    <h2 class="section-title">What Happens When You Listen</h2>
+
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <span class="benefit-num">01</span>
+            <h3>Stress Dissolves Fast</h3>
+            <p>Binaural frequencies act directly on your nervous system, helping lower cortisol so you feel calm and in control — from your very first session.</p>
+        </div>
+        <div class="benefit-card">
+            <span class="benefit-num">02</span>
+            <h3>Mental Clarity Returns</h3>
+            <p>As your Gamma wave reactivates, the brain fog lifts. Thoughts become organized, sharp, and effortless to act on.</p>
+        </div>
+        <div class="benefit-card">
+            <span class="benefit-num">03</span>
+            <h3>Zero Effort to Start</h3>
+            <p>No hours of meditation or complex routines. Just headphones and 7 minutes — your brain takes care of the rest.</p>
+        </div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <ul class="checklist">
+        <li>Works even if you have never meditated before</li>
+        <li>No lifestyle changes required to get started</li>
+        <li>Inspired by decades of neuroscience research</li>
+        <li>Trusted by people worldwide seeking peak mental performance</li>
+        <li>100% natural — no supplements, no pills</li>
+    </ul>
+
+    <!-- HIGHLIGHT QUOTE -->
+    <div class="highlight-quote">
+        "Your brain isn't broken. It's simply been operating below its natural frequency.<br>
+        <em>This technology is designed to bring it back.</em>"
+    </div>
+
+    <!-- CTA PRINCIPAL -->
+    <div class="cta-wrap">
+        <a href="https://hop.clickbank.net/?affiliate=digicrear&vendor=geniusbr&pid=vsl&tid=meta_ad01"
+           class="cta-button" target="_blank" rel="nofollow noopener">
+            &#9654; Watch the Official Video &amp; Activate Your Brainwaves Now
+        </a>
+        <p class="cta-sub">&#128274; Secure page &nbsp;&middot;&nbsp; 100% Natural &nbsp;&middot;&nbsp; No medication required</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- LEGAL FOOTER -->
+    <div class="legal-footer">
+        <p><strong>Affiliate Disclosure:</strong> This page contains affiliate links. If you purchase through these links, we may receive a commission at no additional cost to you.</p>
+        <p>This site is not part of the Facebook website or Meta Inc. This site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of META INC.</p>
+        <p><strong>Disclaimer:</strong> These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</p>
+        <p>
+            <a href="privacy-policy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms &amp; Conditions</a> |
+            <a href="contact.html">Contact Us</a>
+        </p>
+    </div>
+
+</div><!-- /container -->
+
+<!-- STICKY FOOTER -->
+<div class="sticky-footer">
+    <span class="sticky-text">&#9888;&#65039; <strong style="color:#fff;">ATTENTION:</strong> This presentation may be removed soon</span>
+    <a href="https://hop.clickbank.net/?affiliate=digicrear&vendor=geniusbr&pid=vsl&tid=meta_ad01"
+       class="sticky-cta" target="_blank" rel="nofollow noopener">&#9654; WATCH NOW</a>
+</div>
+
+</body>
+</html>
